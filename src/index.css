@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===== 文史长河 · 纸墨主题 ===== */
+:root {
+  --paper: #f4efe4;
+  --ink: #2b2620;
+  --ink-soft: #6b6155;
+  --cinnabar: #9a3b2e;
+}
+
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 15% 0%, rgba(154, 59, 46, 0.05), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(60, 90, 100, 0.06), transparent 55%);
+  color: var(--ink);
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-kai {
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "Songti SC", serif;
+}
+
+.font-hei {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  letter-spacing: 0.35em;
+}
+
+/* 卡片宣纸质感 */
+.paper-card {
+  background: linear-gradient(160deg, #fbf8f0 0%, #f6f1e3 100%);
+  border: 1px solid rgba(80, 66, 48, 0.18);
+  box-shadow: 0 1px 2px rgba(60, 48, 30, 0.06), 0 8px 24px -12px rgba(60, 48, 30, 0.18);
+}
+
+.paper-card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.paper-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgba(60, 48, 30, 0.08), 0 16px 32px -12px rgba(60, 48, 30, 0.28);
+}
+
+/* 时间轴 */
+.timeline-line {
+  background: linear-gradient(to bottom, rgba(80, 66, 48, 0.35), rgba(80, 66, 48, 0.12));
+}
+
+/* 竖排引文装饰 */
+.quote-mark {
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(154, 59, 46, 0.25);
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+}
+
+/* 印章 */
+.seal {
+  display: inline-block;
+  border: 2px solid var(--cinnabar);
+  color: var(--cinnabar);
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 66, 48, 0.3);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(80, 66, 48, 0.45); }
