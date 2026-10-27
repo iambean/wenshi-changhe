@@ -100,6 +100,7 @@ function MiniCard({ item }: { item: TimelineItem }) {
 
 export default function ScrollHome() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const dragState = useRef<{ x: number; left: number; moved: boolean } | null>(null);
   const [unrolled, setUnrolled] = useState(false);
   const [pos, setPos] = useState(0);
 
@@ -171,8 +172,26 @@ export default function ScrollHome() {
         </div>
       </div>
 
-      {/* 画卷主体 */}
-      <div ref={containerRef} className="flex-1 overflow-x-auto overflow-y-hidden relative" style={{ scrollbarWidth: "thin" }}>
+      {/* 画卷主体：鼠标拖动展卷，隐藏滚动条，文字不可选中 */}
+      <div ref={containerRef} className="scroll-host flex-1 overflow-x-auto overflow-y-hidden relative select-none cursor-grab active:cursor-grabbing"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        onPointerDown={(e) => {
+          const el = containerRef.current;
+          if (!el) return;
+          (e.target as HTMLElement).closest("a,button") ? null : e.preventDefault();
+          dragState.current = { x: e.clientX, left: el.scrollLeft, moved: false };
+          el.setPointerCapture(e.pointerId);
+        }}
+        onPointerMove={(e) => {
+          const d = dragState.current;
+          const el = containerRef.current;
+          if (!d || !el) return;
+          const dx = e.clientX - d.x;
+          if (!d.moved && Math.abs(dx) > 4) d.moved = true;
+          if (d.moved) el.scrollLeft = d.left - dx;
+        }}
+        onPointerUp={() => { dragState.current = null; }}
+        onPointerCancel={() => { dragState.current = null; }}>
         <div className="relative h-full" style={{ width: total }}>
           {/* 卷面中缝：时间轴纸带 */}
           <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-9"
@@ -322,6 +341,7 @@ export default function ScrollHome() {
       </div>
 
       <style>{`
+        .scroll-host::-webkit-scrollbar { display: none; }
         @keyframes unroll {
           0% { width: 100%; }
           100% { width: 0%; }
