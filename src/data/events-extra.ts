@@ -1,0 +1,173 @@
+import type { HistEvent } from "./types";
+
+// 新增历史事件（扩容批次）
+export const eventsExtra: HistEvent[] = [
+  {
+    id: "e-sanfen", year: -453, title: "三家分晋，战国开始", eraId: "xianqin",
+    type: "政治",
+    description: "韩、赵、魏三家灭智氏，瓜分晋国；周威烈王正式册命三家为诸侯。司马光《资治通鉴》以此为开篇——天子自坏名分，战国兼并以『力』取代『礼』的逻辑正式确立，也为诸子百家的思想竞争提供了舞台。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-shangyang", year: -359, title: "商鞅变法", eraId: "xianqin",
+    type: "制度",
+    description: "秦孝公任用商鞅两次变法：废井田开阡陌、奖励军功、实行什伍连坐、迁都咸阳。秦从此成为战国最强大的战争机器，其军功爵制打破了世卿世禄——『将相本无种』的社会流动通道由此打开。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-fenshu", year: -213, title: "焚书坑儒", eraId: "qinhan",
+    type: "文化",
+    description: "李斯建议焚烧民间《诗》《书》百家语，次年秦始皇坑杀方士儒生四百六十余人于咸阳。秦制试图以消灭思想的方式消灭批评——贾谊『废先王之道，焚百家之言，以愚黔首』写的就是这件事。",
+    figures: [], works: ["w-guoqin"],
+  },
+  {
+    id: "e-jingba", year: -154, title: "吴楚七国之乱", eraId: "qinhan",
+    type: "战争",
+    description: "晁错建议削藩，吴楚等七国以『清君侧』为名起兵，周亚夫三月平定。藩王威胁稍解而郡国并行体制的根本矛盾仍在——武帝时代的推恩令才最终解决这个开国遗产。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-bairu", year: -134, title: "罢黜百家，独尊儒术", eraId: "qinhan",
+    type: "文化",
+    description: "武帝诏举贤良文学，董仲舒以『天人三策』对策，主张诸不在六艺之科孔子之术者皆绝其道。儒家由此成为此后两千年的官方意识形态，也构成《史记》《汉书》写作的价值底色。",
+    figures: ["f-simaqian", "f-bangu"], works: ["w-shiji"],
+  },
+  {
+    id: "e-danggu", year: 166, title: "党锢之祸", eraId: "qinhan",
+    type: "政治",
+    description: "宦官集团以『结党』罪名禁锢李膺等士人领袖，167年与169年两次大规模禁锢，士人『破家灭族者数百家』。清流士人的政治理想被粉碎，『清议』转入地下——古诗十九首的漂泊感正源于此时代氛围。",
+    figures: [], works: ["w-yongshi"],
+  },
+  {
+    id: "e-gaoping", year: 249, title: "高平陵之变", eraId: "weijin",
+    type: "政治",
+    description: "司马懿趁曹爽陪曹芳拜谒高平陵发动政变，诛曹爽三族，司马氏从此控制曹魏大权。竹林名士的放达由此带上浓重的政治色彩——嵇康、阮籍的不合作，都是在司马氏的恐怖统治下做出的选择。",
+    figures: ["f-jiqi"], works: ["w-jueshu"],
+  },
+  {
+    id: "e-guandu", year: 200, title: "官渡之战", eraId: "weijin",
+    type: "战争",
+    description: "曹操以两万兵力奇袭袁绍乌巢粮仓，大破十倍于己的河北军，为统一北方奠定基础。以弱胜强的背后是后勤与决断的胜利——建安文学的苍凉底色，正是这类生死博弈中淬炼出的。",
+    figures: ["f-caocao"], works: ["w-duange"],
+  },
+  {
+    id: "e-chibi", year: 208, title: "赤壁之战", eraId: "weijin",
+    type: "战争",
+    description: "孙权、刘备联军以火攻大破曹操二十余万大军于赤壁，三分天下的格局就此定型。八百七十四年后，谪居黄州的苏轼面对的不是赤壁古战场，却借这场大战写出了宋词的第一豪放之作。",
+    figures: ["f-caocao"], works: ["w-chibi", "w-chibifu"],
+  },
+  {
+    id: "e-houjing", year: 548, endYear: 552, title: "侯景之乱", eraId: "weijin",
+    type: "战争",
+    description: "东魏叛将侯景引兵南下攻破建康，梁武帝饿死台城，江南地区遭到毁灭性破坏。庾信恰在此时出使西魏被扣，从此身仕北朝——『三日哭于都亭』的哀江南，写的就是这场浩劫的余震。",
+    figures: ["f-yuxin"], works: ["w-aijiangnan"],
+  },
+  {
+    id: "e-zhouqi", year: 577, title: "北周灭北齐", eraId: "weijin",
+    type: "战争",
+    description: "北周武帝灭北齐统一北方，两年后杨坚受禅建隋。从永嘉之乱开始的近三百年分裂，结束于此时。庾信在北方写完了他的《哀江南赋》——故国统一的那一年，他永远留在了北方。",
+    figures: ["f-yuxin"], works: [],
+  },
+  {
+    id: "e-keju", year: 605, title: "隋炀帝设进士科，科举创立", eraId: "suitang",
+    type: "制度",
+    description: "炀帝始建进士科，以考试成绩代替门第作为选官标准。这是此后一千三百年中国最重要的制度发明——宋代『与士大夫共治天下』的社会结构、明清八股取士、乃至《儒林外史》的全部悲欢，都从这年开始。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-xuanwu", year: 626, title: "玄武门之变", eraId: "suitang",
+    type: "政治",
+    description: "李世民伏兵玄武门射杀太子李建成、齐王李元吉，两月后即位，次年改元贞观。权力争夺的残酷与贞观之治的清明出自同一人之手——帝王政治中道德叙事与实际政治的分裂，自唐初即为典型。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-wuzhou2", year: 690, title: "武则天称帝，改唐为周", eraId: "suitang",
+    type: "政治",
+    description: "67岁的武则天登基称帝，成为中国历史上唯一的女皇帝。她打击关陇门阀、大开制科，使庶族士人大量进入仕途——陈子昂式的寒门才俊因她而有了上升通道，唐诗的社会土壤由此改变。",
+    figures: ["f-chenziang"], works: ["w-dengyou"],
+  },
+  {
+    id: "e-liangshui", year: 780, title: "杨炎行两税法", eraId: "suitang",
+    type: "制度",
+    description: "安史乱后均田制彻底崩溃，租庸调制无以为继。杨炎两税法按资产与土地征税，承认土地兼并的现实。中唐诗人笔下战后的凋敝（『大漠穷秋塞草腓』）与这一税制改革记录的是同一场历史震荡。",
+    figures: [], works: ["w-gaoshi"],
+  },
+  {
+    id: "e-huichang", year: 845, title: "会昌灭佛", eraId: "suitang",
+    type: "文化",
+    description: "唐武宗下令拆毁寺院、僧尼还俗二十六万余人，佛教称为『会昌法难』。儒释道三家力量的消长直接关系中唐古文运动与排佛论（韩愈《谏迎佛骨表》被贬即在前）——思想斗争在中唐是切切实实的政治事件。",
+    figures: ["f-hanyu"], works: ["w-shishuo-han"],
+  },
+  {
+    id: "e-zhoushi", year: 954, title: "周世宗改革", eraId: "suitang",
+    type: "制度",
+    description: "后周世宗柴荣整军、均定田赋、兴修水利、抑佛铸钱，在位五年而卒。其未竟之业由赵匡胤继承——北宋的文治格局，是五代武人政治的镜像反弹。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-zhuying", year: 976, title: "烛影斧声，太宗即位", eraId: "song",
+    type: "政治",
+    description: "开宝九年十月，宋太祖赵匡胤暴崩，其弟赵光义（太宗）即位，『烛影斧声』与『金匮之盟』成为千古疑案。兄终弟及对嫡长子继承的偏离，构成北宋皇位传承的潜在危机，也影响太宗朝崇文抑武政策的加码。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-dangren", year: 1102, title: "立元祐党人碑", eraId: "song",
+    type: "政治",
+    description: "崇宁元年，蔡京将司马光、苏轼、秦观等三百零九人列为『奸党』，刻碑立于端礼门，子孙不得为官。苏轼已卒，秦观正贬死于藤州途中——党争之残酷不在于胜负，而在于把人钉在耻辱柱上世代清算。",
+    figures: ["f-suoshi", "f-simaguang", "f-qinguang"], works: ["w-chibi"],
+  },
+  {
+    id: "e-caishi", year: 1161, title: "采石之战", eraId: "song",
+    type: "战争",
+    description: "金主完颜亮大举南侵至采石矶，文臣虞允文以参谋军事之职临阵督战，大败金军，完颜亮旋被部下所杀。南宋得以延续，但绍兴和议的旧格局依旧——主战派的每一次胜利都换不来战略的改变，辛弃疾的悲剧正扎根于此。",
+    figures: [], works: ["w-yangzhou"],
+  },
+  {
+    id: "e-yanyou", year: 1315, title: "延祐复科", eraId: "yuan",
+    type: "制度",
+    description: "元仁宗恢复中断数十年的科举，录取以程朱理学为尊。士人上升通道部分回归，大批文人离开勾栏书会回归仕途——杂剧的黄金期随之落幕，而文学的新主流正在酝酿。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-poyang", year: 1363, title: "鄱阳湖之战", eraId: "mingqing",
+    type: "战争",
+    description: "朱元璋与陈友谅在鄱阳湖决战三十六日，以火攻歼陈军主力，陈友谅中流矢而亡。此役奠定朱元璋统一南方的基础——五年后大明建立，八股取士随之定型，明清两代士人的命运从此被这条轨道锁定。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-zhenghe", year: 1405, title: "郑和七下西洋", eraId: "mingqing",
+    type: "经济",
+    description: "永乐三年起，郑和率二万七千余人、宝船六十二艘首下西洋，至宣德年间共七次。朝贡贸易的荣光背后，是海禁政策下的官方垄断——当欧洲开启大航海，大明选择把海洋重新锁上。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-qianxi", year: 1421, title: "永乐迁都北京", eraId: "mingqing",
+    type: "政治",
+    description: "明成祖正式迁都北京，以天子之躯镇守九边，形成政治中心与经济中心分离的格局。此后近五百年，北京的城市性格、士人的南北之争，都与这个决定有关。",
+    figures: [], works: [],
+  },
+  {
+    id: "e-dali", year: 1521, title: "大礼议", eraId: "mingqing",
+    type: "政治",
+    description: "明世宗以藩王入继大统，与朝臣争论生父尊号，廷杖数百人、杖死十六人。嘉靖帝最终胜出，皇权对士绅集团的压制达到新高度——心学与个性的暗流，正是在这种政治压抑下涌动。",
+    figures: [], works: ["w-mudanting"],
+  },
+  {
+    id: "e-donglin", year: 1604, title: "东林党争", eraId: "mingqing",
+    type: "政治",
+    description: "顾宪成被革职后回无锡修复东林书院，偕同志讲学，讽议朝政：『风声雨声读书声声声入耳，家事国事天下事事事关心。』东林与齐楚浙诸党、再与魏忠贤阉党的缠斗，把整个晚明士大夫集团拖入内耗——明朝亡于流寇与女真，也亡于自己的分裂。",
+    figures: ["f-kongshangren"], works: ["w-taohuashan"],
+  },
+  {
+    id: "e-yangzhou", year: 1645, title: "扬州十日", eraId: "mingqing",
+    type: "战争",
+    description: "清军攻破扬州后屠城十日，死者数十万（一说八十万）。江南士人的抗清意志与遗民文学的悲怆，直接源于此与随后的嘉定三屠。孔尚任写作《桃花扇》时，『扬州十日』仍是两三代人之内不敢直书的记忆。",
+    figures: ["f-zhangdai", "f-kongshangren"], works: ["w-taohuashan"],
+  },
+  {
+    id: "e-ma", year: 1793, title: "马戛尔尼使团访华", eraId: "mingqing",
+    type: "政治",
+    description: "英国马戛尔尼使团以祝寿名义求通商、驻使，乾隆以『天朝物产丰盈，无所不有』拒之。农业帝国与工业世界的这一次擦肩，四十七年后以鸦片战争收场——龚自珍的危机感，正是站在这个时间点上。",
+    figures: ["f-gongzizhen"], works: ["w-jihai"],
+  },
+];

@@ -1,11 +1,17 @@
 import { eras } from "./eras";
-import { events } from "./events";
+import { events as eventsBase } from "./events";
+import { eventsExtra } from "./events-extra";
 import { figures } from "./figures";
-import { works, COLLECTIVE_FIGURE } from "./works";
+import { figuresExtra } from "./figures-extra";
+import { works as worksBase, COLLECTIVE_FIGURE } from "./works";
+import { worksExtra } from "./works-extra";
+import { phases } from "./phases";
 import type { Era, HistEvent, Figure, Work } from "./types";
 
-export { eras, events, works };
-export const allFigures: Figure[] = [...figures, COLLECTIVE_FIGURE as unknown as Figure];
+export { eras, phases };
+export const events: HistEvent[] = [...eventsBase, ...eventsExtra];
+export const works: Work[] = [...worksBase, ...worksExtra];
+export const allFigures: Figure[] = [...figures, ...figuresExtra, COLLECTIVE_FIGURE as unknown as Figure];
 
 const eraMap = new Map(eras.map((e) => [e.id, e]));
 const figureMap = new Map(allFigures.map((f) => [f.id, f]));

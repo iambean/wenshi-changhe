@@ -11,6 +11,7 @@ export interface Era {
   color: string; // 主题色（tailwind  Tailwind 类片段，如 #9a6a3a）
   summary: string; // 历史主线概述
   literature: string; // 文学概述
+  phases?: { name: string; range: string; note: string }[]; // 时期内部分期
 }
 
 export type EventType = "政治" | "战争" | "制度" | "文化" | "社会" | "经济";
@@ -53,6 +54,8 @@ export interface Work {
   analysis: string; // 文学史地位与赏析要点
   events: string[]; // 关联历史事件
   hook: string; // 短视频切入点（一句话钩子）
+  fullText?: string; // 原文全文（较长作品为节选，以……标示）
+  notes?: { w: string; t: string }[]; // 重点字词注释：w 原词，t 释义
 }
 
 export interface RecItem {

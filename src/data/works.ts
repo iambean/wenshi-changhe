@@ -347,6 +347,18 @@ export const works: Work[] = [
   },
 ];
 
+// 挂接原文层（全文 + 注释）
+import { detailA } from "./detailA";
+import { detailB } from "./detailB";
+const details = { ...detailA, ...detailB };
+for (const w of works) {
+  const d = details[w.id];
+  if (d) {
+    w.fullText = d.full;
+    w.notes = d.notes;
+  }
+}
+
 // 集体作者占位（《诗经》等）
 export const COLLECTIVE_FIGURE = {
   id: "f-collective",

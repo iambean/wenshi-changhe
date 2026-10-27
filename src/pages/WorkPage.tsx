@@ -7,6 +7,7 @@ export default function WorkPage() {
   const { id } = useParams();
   const work = workById(id ?? "");
   const [copied, setCopied] = useState(false);
+  const [showNotes, setShowNotes] = useState(false);
 
   const script = useMemo(() => (work ? buildScript(work) : null), [work]);
 
@@ -60,6 +61,39 @@ export default function WorkPage() {
           </blockquote>
         </div>
       </div>
+
+      {/* 原文 + 注释 */}
+      {work.fullText && (
+        <section className="mt-8">
+          <div className="paper-card rounded-xl p-7">
+            <h2 className="font-kai text-xl font-bold mb-4">原文</h2>
+            <p className="font-kai text-[15px] leading-loose whitespace-pre-line" style={{ color: "var(--ink)" }}>
+              {work.fullText}
+            </p>
+            {work.notes && work.notes.length > 0 && (
+              <div className="mt-6 pt-5" style={{ borderTop: "1px dashed rgba(80,66,48,0.25)" }}>
+                <button
+                  onClick={() => setShowNotes(!showNotes)}
+                  className="text-xs font-hei font-bold mb-3"
+                  style={{ color: "var(--cinnabar)" }}
+                >
+                  {showNotes ? "▲ 收起注释" : `▼ 重点字词注释（${work.notes.length} 条）`}
+                </button>
+                {showNotes && (
+                  <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                    {work.notes.map((n, i) => (
+                      <div key={i} className="flex gap-2 text-xs leading-relaxed">
+                        <dt className="font-kai font-bold shrink-0" style={{ color: "var(--cinnabar)" }}>{n.w}</dt>
+                        <dd style={{ color: "var(--ink-soft)" }}>{n.t}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* 背景 + 赏析 */}
       <div className="grid md:grid-cols-2 gap-6 mt-8">

@@ -1,5 +1,5 @@
 import { Link, useParams, useSearchParams } from "react-router";
-import { eraById, events, allFigures, works, fmtRange } from "@/data";
+import { eraById, events, allFigures, works, fmtRange, phases } from "@/data";
 import LearnedToggle from "@/components/LearnedToggle";
 
 export default function EraPage() {
@@ -46,6 +46,24 @@ export default function EraPage() {
             <p className="text-sm leading-loose" style={{ color: "var(--ink)" }}>{era.literature}</p>
           </div>
         </div>
+
+        {/* 时期内部分期 */}
+        {phases[era.id] && (
+          <section>
+            <h2 className="font-kai text-2xl font-bold mb-5">时期内部分期</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {phases[era.id].map((p) => (
+                <div key={p.name} className="paper-card rounded-lg p-5">
+                  <div className="flex items-baseline justify-between mb-2">
+                    <h3 className="font-kai text-lg font-bold">{p.name}</h3>
+                    <span className="text-[11px] font-hei tabular-nums" style={{ color: "var(--cinnabar)" }}>{p.range}</span>
+                  </div>
+                  <p className="text-xs leading-relaxed" style={{ color: "var(--ink-soft)" }}>{p.note}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* 历史事件 */}
         <section>
