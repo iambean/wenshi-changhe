@@ -269,7 +269,7 @@ export default function ScrollHome() {
           {!unrolled && (
             <div
               className="absolute top-0 bottom-0 left-0 z-30 pointer-events-none"
-              style={{ width: "100%", animation: "unroll 2.8s cubic-bezier(0.25,1,0.4,1) 0.5s forwards" }}
+              style={{ width: "100%", animation: "unroll 5.2s cubic-bezier(0.3,1,0.35,1) 0.8s forwards" }}
               onAnimationEnd={() => setUnrolled(true)}
             >
               {/* 尚未展开的卷面 */}
@@ -304,7 +304,7 @@ export default function ScrollHome() {
                   }} />
               ))}
               {/* 展卷题记 */}
-              <div className="absolute top-1/2 -translate-y-1/2 right-[86px]" style={{ animation: "fadeSeal 2.8s ease 0.5s forwards" }}>
+              <div className="absolute top-1/2 -translate-y-1/2 right-[86px]" style={{ animation: "fadeSeal 5.2s ease 0.8s forwards" }}>
                 <p className="font-kai text-3xl font-bold vertical-text" style={{ color: "rgba(60,48,32,0.75)", textShadow: "0 1px 0 rgba(255,250,240,0.6)" }}>展卷</p>
                 <p className="text-[10px] font-hei mt-3 vertical-text ml-1" style={{ color: "rgba(80,66,48,0.55)" }}>三千年文史一轴收</p>
               </div>
