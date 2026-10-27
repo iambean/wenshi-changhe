@@ -3,7 +3,8 @@ import { useMemo } from "react";
 import { works, allFigures, events, getLearned } from "@/data";
 
 const NAV = [
-  { to: "/", label: "首页" },
+  { to: "/", label: "画卷" },
+  { to: "/overview", label: "总览" },
   { to: "/timeline", label: "时间轴" },
   { to: "/review", label: "复习" },
   { to: "/recs", label: "书单 · 片单" },
